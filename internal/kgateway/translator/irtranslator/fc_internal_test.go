@@ -12,9 +12,13 @@ import (
 
 func TestFilterChainInfoDefaultAlpn(t *testing.T) {
 	info := &FilterChainInfo{
-		TLS: &ir.TlsBundle{
-			CertChain:  []byte("cert"),
-			PrivateKey: []byte("key"),
+		TLS: &ir.TLSConfig{
+			Certificates: []ir.TLSCertificate{
+				{
+					CertChain:  []byte("cert"),
+					PrivateKey: []byte("key"),
+				},
+			},
 		},
 	}
 
@@ -25,9 +29,13 @@ func TestFilterChainInfoDefaultAlpn(t *testing.T) {
 func TestFilterChainInfoCustomAlpn(t *testing.T) {
 	custom := []string{"grpc"}
 	info := &FilterChainInfo{
-		TLS: &ir.TlsBundle{
-			CertChain:     []byte("cert"),
-			PrivateKey:    []byte("key"),
+		TLS: &ir.TLSConfig{
+			Certificates: []ir.TLSCertificate{
+				{
+					CertChain:  []byte("cert"),
+					PrivateKey: []byte("key"),
+				},
+			},
 			AlpnProtocols: custom,
 		},
 	}
