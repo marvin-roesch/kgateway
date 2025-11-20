@@ -46,8 +46,8 @@ func TestFilterChainInfoCustomAlpn(t *testing.T) {
 
 func TestFilterChainInfoSingleCertificate(t *testing.T) {
 	info := &FilterChainInfo{
-		TLS: &ir.TlsConfig{
-			Bundles: []ir.TlsBundle{
+		TLS: &ir.TLSConfig{
+			Certificates: []ir.TLSCertificate{
 				{
 					CertChain:  []byte("cert"),
 					PrivateKey: []byte("key"),
@@ -71,8 +71,8 @@ func TestFilterChainInfoSingleCertificate(t *testing.T) {
 
 func TestFilterChainInfoMultipleCertificates(t *testing.T) {
 	info := &FilterChainInfo{
-		TLS: &ir.TlsConfig{
-			Bundles: []ir.TlsBundle{
+		TLS: &ir.TLSConfig{
+			Certificates: []ir.TLSCertificate{
 				{
 					CertChain:  []byte("cert1"),
 					PrivateKey: []byte("key1"),
